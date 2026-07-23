@@ -205,7 +205,7 @@ class MusicPlayer(App):
 
     BINDINGS=[
         Binding("q","quit","Quit", show=True),
-        Binding("space","play_pause","Play/Pause", show=False),
+        Binding("space","play_pause","Play/Pause", show=True),
         Binding("n","next_track","Next", show=False),
         Binding("p","prev_track","Prev", show=False),
     ]
@@ -230,7 +230,8 @@ class MusicPlayer(App):
 
                 with Horizontal(id="progress-container"):
                     yield Label("00:00",id="time-elapsed")
-                    yield ProgressBar(total=100)
+                    yield ProgressBar(total=100,show_percentage=False,show_eta=False)
+
                     yield Label("00:00",id="time-total")
 
 
@@ -264,6 +265,7 @@ class MusicPlayer(App):
             playlist_widget.append(SongItem(file_path, index))
 
     def play_track(self, index: int) -> None:
+        """Play a track at a specific index and extract metadata."""
         if 0 <= index < len(self.track_list):
             file_to_play = self.track_list[index]
             success, length = self.audio.load_and_play(file_to_play)
@@ -272,24 +274,27 @@ class MusicPlayer(App):
                 self.track_length = length
                 self.current_track_index = index
                 
-                # Extract Metadata for UI (Artwork, Title, Artist)
+                # Extract Metadata for UI (Title, Artist)
                 title = file_to_play.stem
                 artist = "Unknown Artist"
-                album = "Unknown Album"
                 try:
                     meta = mutagen.File(file_to_play, easy=True)
                     if meta:
                         title = meta.get("title", [title])[0]
                         artist = meta.get("artist", [artist])[0]
-                        album = meta.get("album", [album])[0]
                 except Exception:
                     pass
 
-                # Update UI
+                # Update Text UI
                 self.query_one("#track-title", Label).update(f"{title}")
                 self.query_one("#track-artist", Label).update(f"{artist}")
-                self.query_one("#artwork", Static).update(f"[ ALBUM ]\n\n{album}")
-                self.query_one("#play-pause", Button).label = "||"
+                self.query_one("#play-pause", Button).label = "PAUSE ||"
+                
+                # --- ARTWORK CODE ---
+                # This explicitly calls the image generator we built!
+                artwork_renderable = self.generate_artwork_text(file_to_play)
+                self.query_one("#artwork", Static).update(artwork_renderable)
+                # --------------------
                 
                 # Reset and configure Progress Bar
                 pb = self.query_one(ProgressBar)
@@ -306,13 +311,16 @@ class MusicPlayer(App):
                 for child in playlist_widget.children:
                     child.remove_class("now-playing")
                 
-                new_item = playlist_widget.query_one(f"#song-{index}")
-                new_item.add_class("now-playing")
+                try:
+                    new_item = playlist_widget.query_one(f"#song-{index}")
+                    new_item.add_class("now-playing")
+                except Exception:
+                    pass
         else:
             self.audio.stop()
             self.current_track_index = -1
             self.query_one("#track-title", Label).update("Finished Playlist")
-            self.query_one("#play-pause", Button).label = "|>"
+            self.query_one("#play-pause", Button).label = "PLAY >"
             if self.progress_timer is not None:
                 self.progress_timer.stop()
 
@@ -359,28 +367,37 @@ class MusicPlayer(App):
     def generate_artwork_text(self, file_path: Path, width: int = 34, height: int = 14) -> Text | str:
         """Extracts MP3 cover art and converts it to colored terminal blocks using Pygame."""
         try:
-            # Extract embedded image using mutagen
             audio = mutagen.File(file_path)
             artwork_data = None
+            mime_type = "image/jpeg" # Default fallback
+            
             if audio and audio.tags:
                 for tag in audio.tags.values():
                     # Look for APIC (Attached Picture) frame in ID3 tags
                     if hasattr(tag, 'data') and hasattr(tag, 'mime'):
                         artwork_data = tag.data
+                        mime_type = tag.mime.lower()
                         break
                         
             if not artwork_data:
-                return "[ ALBUM ]\n\nNo Cover Art found in file."
+                return "[ ALBUM ]\n\nNo Cover Art embedded in this MP3 file."
 
-            # Use Pygame to load and resize the image from memory
-            # (No need for Pillow!)
-            img = pygame.image.load(io.BytesIO(artwork_data))
+            # Determine the correct hint based on the MP3's metadata
+            hint = ".jpg"
+            if "png" in mime_type:
+                hint = ".png"
+
+            # Pass the correct hint to Pygame so it uses the right decoder
+            try:
+                img = pygame.image.load(io.BytesIO(artwork_data), hint)
+            except Exception as img_err:
+                return f"[ ALBUM ]\n\nImage Decode Error:\n{str(img_err)}"
+                
             img = pygame.transform.scale(img, (width, height * 2))
 
             text = Text()
             for y in range(0, height * 2, 2):
                 for x in range(width):
-                    # Pygame's get_at returns a Color object with guaranteed r,g,b properties
                     p1 = img.get_at((x, y))
                     r1, g1, b1 = p1.r, p1.g, p1.b
                     
@@ -392,8 +409,30 @@ class MusicPlayer(App):
                         text.append(" ", style=f"on rgb({r1},{g1},{b1})")
                 text.append("\n")
             return text
-        except Exception:
-            return "[ ALBUM ]\n\nError loading art."
+        except Exception as e:
+            return f"[ ALBUM ]\n\nCrash:\n{str(e)}"
+
+    def action_play_pause(self) -> None:
+        """Handle the spacebar to play/pause."""
+        if self.audio.current_track is None and len(self.track_list) > 0:
+            self.play_track(0)
+        else:
+            self.audio.toggle_pause()
+            button = self.query_one("#play-pause", Button)
+            if self.audio.is_paused:
+                button.label = "PLAY >"
+            else:
+                button.label = "PAUSE ||"
+
+    def action_next_track(self) -> None:
+        """Handle the 'n' key for next track."""
+        if len(self.track_list) > 0:
+            self.play_track((self.current_track_index + 1) % len(self.track_list))
+
+    def action_prev_track(self) -> None:
+        """Handle the 'p' key for previous track."""
+        if len(self.track_list) > 0:
+            self.play_track((self.current_track_index - 1 + len(self.track_list)) % len(self.track_list))
 
 
 app = MusicPlayer()

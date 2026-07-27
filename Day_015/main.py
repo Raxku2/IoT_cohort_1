@@ -288,7 +288,7 @@ class MusicPlayer(App):
                 # Update Text UI
                 self.query_one("#track-title", Label).update(f"{title}")
                 self.query_one("#track-artist", Label).update(f"{artist}")
-                self.query_one("#play-pause", Button).label = "PAUSE ||"
+                self.query_one("#play-pause", Button).label = "||"
                 
                 # --- ARTWORK CODE ---
                 # This explicitly calls the image generator we built!
@@ -320,7 +320,7 @@ class MusicPlayer(App):
             self.audio.stop()
             self.current_track_index = -1
             self.query_one("#track-title", Label).update("Finished Playlist")
-            self.query_one("#play-pause", Button).label = "PLAY >"
+            self.query_one("#play-pause", Button).label = "|>"
             if self.progress_timer is not None:
                 self.progress_timer.stop()
 
@@ -370,7 +370,7 @@ class MusicPlayer(App):
             audio = mutagen.File(file_path)
             artwork_data = None
             mime_type = "image/jpeg" # Default fallback
-            
+
             if audio and audio.tags:
                 for tag in audio.tags.values():
                     # Look for APIC (Attached Picture) frame in ID3 tags
@@ -378,7 +378,7 @@ class MusicPlayer(App):
                         artwork_data = tag.data
                         mime_type = tag.mime.lower()
                         break
-                        
+
             if not artwork_data:
                 return "[ ALBUM ]\n\nNo Cover Art embedded in this MP3 file."
 
@@ -387,12 +387,12 @@ class MusicPlayer(App):
             if "png" in mime_type:
                 hint = ".png"
 
-            # Pass the correct hint to Pygame so it uses the right decoder
+            # Pass the correct hint to Pygame
             try:
                 img = pygame.image.load(io.BytesIO(artwork_data), hint)
             except Exception as img_err:
                 return f"[ ALBUM ]\n\nImage Decode Error:\n{str(img_err)}"
-                
+
             img = pygame.transform.scale(img, (width, height * 2))
 
             text = Text()
@@ -400,11 +400,12 @@ class MusicPlayer(App):
                 for x in range(width):
                     p1 = img.get_at((x, y))
                     r1, g1, b1 = p1.r, p1.g, p1.b
-                    
+
                     if y + 1 < height * 2:
                         p2 = img.get_at((x, y + 1))
                         r2, g2, b2 = p2.r, p2.g, p2.b
-                        text.append("▄", style=f"color:rgb({r2},{g2},{b2}) on rgb({r1},{g1},{b1})")
+                        # FIXED: Removed "color:" so the rich library understands it
+                        text.append("▄", style=f"rgb({r2},{g2},{b2}) on rgb({r1},{g1},{b1})")
                     else:
                         text.append(" ", style=f"on rgb({r1},{g1},{b1})")
                 text.append("\n")
@@ -420,9 +421,9 @@ class MusicPlayer(App):
             self.audio.toggle_pause()
             button = self.query_one("#play-pause", Button)
             if self.audio.is_paused:
-                button.label = "PLAY >"
+                button.label = "|>"
             else:
-                button.label = "PAUSE ||"
+                button.label = "||"
 
     def action_next_track(self) -> None:
         """Handle the 'n' key for next track."""

@@ -28,13 +28,13 @@ If you have installed Node.js previously using an `.msi` installer:
    ```powershell
    nvm list available
 
-```
+   ```
 
 3. To install the absolute latest version, run:
-```powershell
-nvm install latest
-
-```
+   ```powershell
+   nvm install latest
+   
+   ```
 
 
 *(Alternatively, install the Long Term Support version for better stability: `nvm install lts`)*

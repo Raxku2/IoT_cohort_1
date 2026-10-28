@@ -6,7 +6,7 @@ We are going to focus on rapid-feedback, application-driven concepts. Let's skip
 
 ---
 
-## Chapter 1: The Operating System (The Ultimate Middleman)
+## The Operating System (The Ultimate Middleman)
 
 An Operating System (like Linux, Windows, or macOS) sits between your code and the physical hardware. 
 
@@ -47,7 +47,7 @@ graph TD
 
 ---
 
-## Chapter 2: The Linux File System Hierarchy
+## The Linux File System Hierarchy
 
 In Linux, there is a golden rule: **Everything is a file.**
 
@@ -80,7 +80,7 @@ When you deploy a fullstack app or configure an edge device, you will constantly
 
 ---
 
-## Chapter 3: The Developer's Toolkit (Essential OS Commands)
+## The Developer's Toolkit (Essential OS Commands)
 
 To build software efficiently, you need to live in the terminal. The terminal provides the fastest feedback loop possible. You type a command, you get an immediate result.
 
@@ -173,7 +173,3 @@ If your backend app gives you an "Access Denied" error, or your script hangs, yo
 * `top` / `htop` **(Task Manager):** Shows real-time CPU and RAM usage. Use this to see if your script has a memory leak.
 * `kill` **(End Process):** Forcibly stops a running program.
 * *Usage:* First find the Process ID (PID) using `top`, then run `kill -9 1234` to force-quit it.
-"""
-with open("OS_and_FileSystem_Notes.md", "w", encoding="utf-8") as f:
-f.write(content)
-

@@ -349,3 +349,11 @@ console.log(formatted); // e.g., "Thursday, August 6, 2026"
 ### 22. The Future: Temporal API (TC39 Proposal)
 
 Because the `Date` object has many quirks (like 0-indexed months and mutation issues), the TC39 committee is finalizing the **Temporal API**. It will introduce immutable date objects, flawless timezone handling, and exact math (e.g., `Temporal.Now.plainDateISO()`). It is the future standard of JS time management.
+
+---
+
+<div align="center">
+
+[![Previous](https://img.shields.io/badge/-%5B%E2%86%90%5D_Previous_Chapter-black?style=for-the-badge)](../../Day_023/Chapter_09/) [![Next](https://img.shields.io/badge/Next_Chapter_%5B%E2%86%92%5D-black?style=for-the-badge)](../../Day_024/Chapter_11/)
+
+</div>

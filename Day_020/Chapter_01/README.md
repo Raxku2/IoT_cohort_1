@@ -101,3 +101,10 @@ let score = 100;
 ```
 
 ---
+---
+
+<div align="center">
+
+[![Previous](https://img.shields.io/badge/-%5B%E2%86%90%5D_Previous_Chapter-black?style=for-the-badge)](../Day_020/) [![Next](https://img.shields.io/badge/Next_Chapter_%5B%E2%86%92%5D-black?style=for-the-badge)](../../Day_021/Chapter_02/)
+
+</div>

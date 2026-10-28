@@ -295,3 +295,9 @@ fetchSensorData((sensorResults) => {
 });
 
 ```
+---
+
+<div align="center">
+
+[![Previous](https://img.shields.io/badge/-%5B%E2%86%90%5D_Previous_Chapter-black?style=for-the-badge)](../../Day_023/Chapter_10/) 
+</div>

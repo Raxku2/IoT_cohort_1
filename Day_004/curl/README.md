@@ -117,7 +117,6 @@ No matter which operating system you use, you can verify that `curl` is installe
 
 ```bash
 curl --version
-
 ```
 
 **Expected Output:**

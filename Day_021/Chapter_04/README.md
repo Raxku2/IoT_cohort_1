@@ -250,3 +250,11 @@ Whenever you forget a method, glance at this quick-reference summary:
 * **Cut it:** `.slice(start, end)` *(Use negatives to count from the back!)*
 * **Change it:** `.replace("old", "new")`
 * **Turn to Array:** `.split(",")`
+
+---
+
+<div align="center">
+
+[![Previous](https://img.shields.io/badge/-%5B%E2%86%90%5D_Previous_Chapter-black?style=for-the-badge)](../../Day_020/Chapter_03/) [![Next](https://img.shields.io/badge/Next_Chapter_%5B%E2%86%92%5D-black?style=for-the-badge)](../../Day_022/Chapter_05/)
+
+</div>

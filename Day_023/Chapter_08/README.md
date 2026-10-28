@@ -201,3 +201,11 @@ Whenever you are stuck wondering which loop to use, glance at this matrix:
 | **Get VALUES from an Array/String** | `for...of` | `for (let car of cars)` |
 | **Get KEYS from an Object** | `for...in` | `for (let key in userProfile)` |
 | **Execute a function for every Array item** | `forEach()` | `users.forEach(user => print(user))` |
+
+---
+
+<div align="center">
+
+[![Previous](https://img.shields.io/badge/-%5B%E2%86%90%5D_Previous_Chapter-black?style=for-the-badge)](../../Day_022/Chapter_07/) [![Next](https://img.shields.io/badge/Next_Chapter_%5B%E2%86%92%5D-black?style=for-the-badge)](../../Day_023/Chapter_09/)
+
+</div>

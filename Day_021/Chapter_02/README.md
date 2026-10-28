@@ -182,3 +182,10 @@ console.log(userOne.email); // Output: "hacked@evil.com"
 ```
 
 *Mental Model:* You have one TV (the Object in the Heap). `userOne` and `userTwo` are two remote controls. If `userTwo` changes the channel, `userOne` also sees the new channel, because they are controlling the exact same TV.
+---
+
+<div align="center">
+
+[![Previous](https://img.shields.io/badge/-%5B%E2%86%90%5D_Previous_Chapter-black?style=for-the-badge)](../../Day_020/Chapter_01/) [![Next](https://img.shields.io/badge/Next_Chapter_%5B%E2%86%92%5D-black?style=for-the-badge)](../../Day_021/Chapter_03/)
+
+</div>

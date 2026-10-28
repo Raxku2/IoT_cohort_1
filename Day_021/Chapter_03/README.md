@@ -144,3 +144,11 @@ It runs a two-step interview process to get a usable primitive value.
 * **Math with `+`:** Prefers Strings (Concatenates).
 * **Math with `-`, `*`, `/`:** Prefers Numbers (Calculates).
 * **Objects to Primitives:** Handled by the `ToPrimitive` algorithm (`valueOf` then `toString`).
+
+---
+
+<div align="center">
+
+[![Previous](https://img.shields.io/badge/-%5B%E2%86%90%5D_Previous_Chapter-black?style=for-the-badge)](../../Day_020/Chapter_02/) [![Next](https://img.shields.io/badge/Next_Chapter_%5B%E2%86%92%5D-black?style=for-the-badge)](../../Day_021/Chapter_04/)
+
+</div>

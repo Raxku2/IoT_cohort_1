@@ -193,3 +193,11 @@ if (myEmptyArray) {
 * [x] Use `else if` for multiple conditions, but switch to a `switch` statement if checking one variable against many exact values.
 * [x] Always use `break` in your `switch` cases to prevent logic bleed.
 * [x] Memorize the 8 **Falsy** values. Assume everything else is **Truthy**.
+
+---
+
+<div align="center">
+
+[![Previous](https://img.shields.io/badge/-%5B%E2%86%90%5D_Previous_Chapter-black?style=for-the-badge)](../../Day_022/Chapter_06/) [![Next](https://img.shields.io/badge/Next_Chapter_%5B%E2%86%92%5D-black?style=for-the-badge)](../../Day_023/Chapter_08/)
+
+</div>

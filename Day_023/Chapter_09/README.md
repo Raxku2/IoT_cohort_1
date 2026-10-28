@@ -319,3 +319,10 @@ const taxedElectronics = products
 console.log(taxedElectronics); // [1100, 550]
 
 ```
+---
+
+<div align="center">
+
+[![Previous](https://img.shields.io/badge/-%5B%E2%86%90%5D_Previous_Chapter-black?style=for-the-badge)](../../Day_023/Chapter_08/) [![Next](https://img.shields.io/badge/Next_Chapter_%5B%E2%86%92%5D-black?style=for-the-badge)](../../Day_023/Chapter_10/)
+
+</div>

@@ -188,3 +188,10 @@ Let's dissect the formula step-by-step so your brain understands the logic perfe
 4. **`+ min`**: You don't want a number between 0 and 10; you want one starting at 10. Adding the `min` shifts the entire range up. `0 + 10 = 10`, and `10 + 10 = 20`.
 
 You now have a perfect random number between 10 and 20!
+---
+
+<div align="center">
+
+[![Previous](https://img.shields.io/badge/-%5B%E2%86%90%5D_Previous_Chapter-black?style=for-the-badge)](../../Day_021/Chapter_04/) [![Next](https://img.shields.io/badge/Next_Chapter_%5B%E2%86%92%5D-black?style=for-the-badge)](../../Day_022/Chapter_06/)
+
+</div>

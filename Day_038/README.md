@@ -1,7 +1,5 @@
 # 🚀 The Beginner's Guide to APIs
 
-Welcome! If you are a student starting your coding journey, you've probably heard the term **API** thrown around a lot. This guide will break down what an API is, how it works, and where it is used in the real world, using simple language and clear diagrams.
-
 ## 🧐 What is an API?
 
 **API** stands for **Application Programming Interface**.

@@ -47,6 +47,15 @@ Navigate through the course content using the table below. Click the **[↗] Ope
 | **35** | **[+] Deployment and Hosting** <br> *Deployment Essential*  | [[↗] Open](./Day_035/) |
 | **36** | **[+] Optimizing Deployments** <br> *Guide to Scaling and Optimizing Deployments* | [[↗] Open](./Day_036/) |
 | **37** | **[+] Search Engine Optimization** <br> *Beginner's Guide to Search Engine Optimization* | [[↗] Open](./Day_037/) |
+| **38** | **[+] API** <br> *Application Programming Interface* | [[↗] Open](./Day_038/) |
+| **39** | **[+] Express js** <br> *a fast, unopinionated, minimalist web framework for Node.js* | [[↗] Open](./Day_039/) |
+| **40** | **[+] HTTP Methods** <br> *Understanding HTTP Methods & API Testing* | [[↗] Open](./Day_040/) |
+| **41** | **[+] Express js** <br> *CORS, Headers, Validation & Best Practices* | [[↗] Open](./Day_041/) |
+| **45** | **[+] Fast API** <br> *a modern, fast, and minimalist web framework for building APIs with Python* | [[↗] Open](./Day_045/) |
+| **46** | **[+] HTTP Methods** <br> *Understanding HTTP Methods & API Testing* | [[↗] Open](./Day_046/) |
+| **47** | **[+] Fast API** <br> *CORS, Headers, Validation & Best Practices* | [[↗] Open](./Day_047/) |
+| **50** | **[+] Databases** <br> *Guide to Databases* | [[↗] Open](./Day_050/) |
+| **51** | **[+] MongoDB** <br> *Guide to MongoDB Atlas & PyMongo* | [[↗] Open](./Day_051/) |
 | **** | **[+] ** <br> ** | [[↗] Open](./) |
 
 

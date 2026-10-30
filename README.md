@@ -56,6 +56,8 @@ Navigate through the course content using the table below. Click the **[↗] Ope
 | **47** | **[+] Fast API** <br> *CORS, Headers, Validation & Best Practices* | [[↗] Open](./Day_047/) |
 | **50** | **[+] Databases** <br> *Guide to Databases* | [[↗] Open](./Day_050/) |
 | **51** | **[+] MongoDB** <br> *Guide to MongoDB Atlas & PyMongo* | [[↗] Open](./Day_051/) |
+| **54** | **[+] PyMongo Queries & Filters** <br> *Guide to PyMongo Queries & Filters* | [[↗] Open](./Day_054/) |
+| **56** | **[+] Valkey** <br> *high-performance data structure server that primarily serves key/value workloads* | [[↗] Open](./Day_056/) |
 | **** | **[+] ** <br> ** | [[↗] Open](./) |
 
 

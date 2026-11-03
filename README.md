@@ -58,6 +58,8 @@ Navigate through the course content using the table below. Click the **[↗] Ope
 | **51** | **[+] MongoDB** <br> *Guide to MongoDB Atlas & PyMongo* | [[↗] Open](./Day_051/) |
 | **54** | **[+] PyMongo Queries & Filters** <br> *Guide to PyMongo Queries & Filters* | [[↗] Open](./Day_054/) |
 | **56** | **[+] Valkey** <br> *high-performance data structure server that primarily serves key/value workloads* | [[↗] Open](./Day_056/) |
+| **57** | **[+] Solid.js** <br> *reactive, unopinionated framework for building user interfaces* | [[↗] Open](./Day_057/) |
+| **58** | **[+] Demystifying Solid.js** <br> *JavaScript framework for building user interfaces* | [[↗] Open](./Day_058/) |
 | **** | **[+] ** <br> ** | [[↗] Open](./) |
 
 
